@@ -1,0 +1,11 @@
+{
+  "base_rate": 0.5421,
+  "precision_at_50": 0.68,
+  "precision_at_100": 0.65,
+  "precision_at_200": 0.665,
+  "n_flagged": 11707,
+  "n_total": 30000,
+  "rule": "impr>=500 AND 0<ctr<0.5 \u2192 score=impressions/ctr",
+  "reason_code": "low_ctr_visible_page",
+  "action": "ctr_fix"
+}
