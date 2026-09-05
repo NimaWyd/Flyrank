@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which Content Is About to Lose Organic Visibility? — FlyRank Ranking Signal Analysis</title>
+<meta name="description" content="A decision-support ranker identifying content at risk of organic impression decline. Client-grouped and time-forward evaluation of search signal features.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#f0f2f5;font-family:Inter,system-ui,sans-serif;color:#161a22}
+
+.wrapper{max-width:900px;margin:0 auto;padding:32px 24px 80px}
+
+.doc-header{border-bottom:2px solid #161a22;padding-bottom:20px;margin-bottom:28px}
+.venue{font:600 11.5px/1.45 Inter,sans-serif;letter-spacing:.13em;color:#5a6472;margin:0 0 14px;text-transform:uppercase}
+h1{font:700 30px/1.22 'Source Serif 4',Georgia,serif;margin:0 0 12px;letter-spacing:-.01em;color:#0d2a5e}
+.byline{font:14px/1.55 Inter,sans-serif;color:#5a6472;margin:0}
+
+.abstract{background:#f2f4f0;border-left:4px solid #0d2a5e;padding:18px 22px;margin-bottom:8px;border-radius:0 6px 6px 0}
+.abstract h2{margin:0 0 10px;font:700 15px Inter,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:#0d2a5e}
+.abstract p{font:16px/1.65 'Source Serif 4',Georgia,serif;margin:0}
+
+article{background:#fff;border-radius:10px;padding:40px 50px 50px;box-shadow:0 4px 18px rgba(0,0,0,.09);margin-top:20px}
+
+h2{font:700 20px/1.3 'Source Serif 4',Georgia,serif;margin:36px 0 10px;color:#0d2a5e;border-bottom:1px solid #e3e7ee;padding-bottom:6px}
+h2:first-child{margin-top:0}
+h3{font:700 16px/1.35 'Source Serif 4',Georgia,serif;margin:22px 0 8px;color:#161a22}
+p{font:17px/1.65 'Source Serif 4',Georgia,serif;margin:0 0 14px;text-align:justify;hyphens:auto}
+ul,ol{margin:0 0 14px;padding-left:28px}
+li{font:16.5px/1.6 'Source Serif 4',Georgia,serif;margin-bottom:8px}
+code{font:13.5px 'Space Mono',ui-monospace,monospace;background:#eef1f6;padding:2px 6px;border-radius:4px;color:#1a3a6e}
+pre{font:13px/1.65 'Space Mono',ui-monospace,monospace;background:#f2f4f0;border:1px solid #e0e4da;padding:14px 16px;overflow-x:auto;margin:0 0 14px;border-radius:6px}
+a{color:#0d2a5e}
+a:hover{text-decoration:underline}
+
+table{width:100%;border-collapse:collapse;font:14px/1.5 Inter,sans-serif;margin:14px 0 22px}
+caption{caption-side:top;text-align:left;font:13.5px/1.55 Inter,sans-serif;color:#3a4353;padding-bottom:8px}
+th{border-top:2px solid #161a22;border-bottom:1px solid #161a22;text-align:left;padding:8px 11px;font-weight:600;background:#fafbfc}
+td{border-bottom:1px solid #d8dce3;padding:8px 11px;vertical-align:top}
+tbody tr:last-child td{border-bottom:2px solid #161a22}
+td.hi{font-weight:600;color:#1a3a6e}
+
+figure{margin:20px 0 24px;padding:16px;border:1px solid #e3e7ee;background:#fcfcfb;border-radius:6px}
+figcaption{font:13.5px/1.55 Inter,sans-serif;color:#3a4353;margin-top:12px}
+figure img{width:100%;height:auto;display:block;border-radius:4px}
+
+.repro-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.repro-card{background:#f7f8fb;border:1px solid #e3e7ee;border-radius:6px;padding:14px 16px}
+.repro-card h3{margin:0 0 6px;font:600 13px Inter,sans-serif;text-transform:uppercase;letter-spacing:.07em;color:#5a6472}
+.repro-card a{font:14.5px/1.5 'Space Mono',ui-monospace,monospace;color:#0d2a5e;word-break:break-all}
+.repro-card p{font:14px/1.5 Inter,sans-serif;color:#3a4353;margin:6px 0 0}
+
+.ack{margin-top:32px;border-top:1px solid #d8dce3;padding-top:18px}
+.ack h2{font-size:16px;margin-top:0;border:none;padding-bottom:0}
+.ack p{font-size:15px}
+
+@media(max-width:680px){
+  .wrapper{padding:16px 12px 60px}
+  article{padding:24px 18px 32px}
+  h1{font-size:24px}
+  .repro-grid{grid-template-columns:1fr}
+  p,li{font-size:16px}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <header class="doc-header">
+    <p class="venue">FlyRank ML Internship &nbsp;&middot;&nbsp; Ranking Signal Analysis Lane &nbsp;&middot;&nbsp; September 2026</p>
+    <h1>Which Content Is About to Lose Organic Visibility?<br>
+      <span style="font-size:.7em;font-weight:400;color:#5a6472">A Decision-Support Ranker for Monthly Search Signal Review</span>
+    </h1>
+    <p class="byline">Nima Abbassi &nbsp;&middot;&nbsp; FlyRank Internship Cohort</p>
+  </header>
+
+  <article>
+
+    <!-- ABSTRACT -->
+    <div class="abstract">
+      <h2>Abstract</h2>
+      <p><b>Problem.</b> Content teams have a fixed monthly review budget; the decision this system supports
+        is the <i>order</i> of that review, so Precision@K was chosen as the target metric before any model
+        was trained. <b>Setting.</b> Source: the pseudonymized FlyRank internship warehouse
+        (~79&nbsp;million daily fact rows). Development evaluation uses March 2026 as the feature window
+        and April 2026 as the label window (331,436 eligible content items, 55 clients); validation is
+        grouped by client to prevent client-level leakage. <b>Approach.</b> An audited heuristic baseline
+        is compared against logistic regression and random forest on identical splits. Three leakage
+        boundaries are each enforced in code. <b>Evidence.</b> Logistic regression achieves
+        P@50&nbsp;=&nbsp;0.520, P@100&nbsp;=&nbsp;0.540, P@200&nbsp;=&nbsp;0.570 on the dev-test hold-out
+        (base&nbsp;rate&nbsp;0.241), outperforming the heuristic rule (P@50&nbsp;=&nbsp;0.320) by 0.200.
+        On the sealed May&rarr;June test (389,032 rows, base&nbsp;rate&nbsp;0.441), the random forest and
+        rule both reach P@50&nbsp;=&nbsp;0.820. <b>Scope.</b> All relationships are observational;
+        no causal claims about content changes are made. Code, seeds, and a notebook map are provided.</p>
+    </div>
+
+    <!-- 1. INTRODUCTION -->
+    <h2>1&nbsp;&nbsp;Introduction and Decision Context</h2>
+    <p>A page that loses organic impressions silently costs traffic until the decline is large enough to
+      surface in aggregate reporting. The practical question is not whether a page <i>might</i> decline
+      in the abstract, but which pages are worth a human reviewer's attention <i>this month</i>, when
+      review capacity is finite.</p>
+    <p>This paper builds and evaluates a decision-support ranking system for that problem. The system
+      produces a scored queue: content items ranked from most to least likely to experience an impression
+      drop of 20&nbsp;percent or more in the following month. A content team using the queue reviews the
+      top rows first; the score is an ordering aid, not an automated verdict.</p>
+    <p>Three testable claims guide this evaluation:</p>
+    <ol>
+      <li><b>C1.</b> Learned models, trained on warehouse search signals with client-grouped splits,
+        outperform the audited heuristic baseline on Precision@K across the operating range
+        (K&nbsp;=&nbsp;50&ndash;200).</li>
+      <li><b>C2.</b> The grouped split is load-bearing: confining clients to one side of the
+        train/test boundary is a necessary precondition for generalizable evaluation.</li>
+      <li><b>C3.</b> Signal patterns predictive in the development window (March&rarr;April 2026) are
+        tested once on a sealed forward window (May&rarr;June 2026), after all development choices
+        are frozen.</li>
+    </ol>
+
+    <!-- 2. DATA -->
+    <h2>2&nbsp;&nbsp;Data</h2>
+    <h3>2.1&nbsp;&nbsp;Source and size</h3>
+    <p>All features derive from the pseudonymized FlyRank internship warehouse
+      (<code>hf://datasets/FlyRank/internship-warehouse</code>), partitioned by month. The daily fact
+      table contains approximately 79&nbsp;million rows. Identifiers are pseudonymous hashes
+      (<code>client_hash_id</code>, <code>content_hash_id</code>) used only for grouping and joining,
+      never as model features.</p>
+    <h3>2.2&nbsp;&nbsp;Unit of observation</h3>
+    <p>One observation is one content item for one client, summarized over a monthly feature window.
+      A de-duplication query confirms zero duplicate (client, content, date) rows in the March 2026
+      partition.</p>
+    <h3>2.3&nbsp;&nbsp;Feature and label windows</h3>
+    <p><b>Feature window:</b> month=2026-03 (331,437 raw rows, 331,436 eligible after inner join).
+      All five model features are aggregates over March, fully known at the start of April.
+      <b>Label window:</b> month=2026-04. The label is computed from April data and quarantined from
+      the feature frame.</p>
+    <p><b>Label definition:</b>
+      <code>is_declining&nbsp;= (avg_daily_impressions_apr &lt; 0.80 &times; avg_daily_impressions_mar)</code>.
+      A 20&nbsp;percent impression drop over one month is used as the threshold for "at risk."
+      Development base rate: <b>0.279</b> (27.9&nbsp;percent of eligible items declined).
+      On the client-grouped test split: <b>0.241</b>.</p>
+    <h3>2.4&nbsp;&nbsp;Feature manifest</h3>
+    <table>
+      <caption><b>Table 1.</b> Feature manifest — all computed from March 2026 data only.</caption>
+      <thead><tr><th>Feature</th><th>Knowable because</th><th>Construction</th></tr></thead>
+      <tbody>
+        <tr><td><code>log_impressions</code></td><td>GSC export complete by March 31 (~3-day lag)</td><td>log(1 + total_gsc_impressions)</td></tr>
+        <tr><td><code>avg_position_filled</code></td><td>Same GSC export; missing positions filled with median</td><td>avg of daily avg_position where &gt; 0; median-filled</td></tr>
+        <tr><td><code>ctr</code></td><td>clicks &divide; impressions, both in March window</td><td>sum(clicks) / sum(impressions)</td></tr>
+        <tr><td><code>impression_consistency</code></td><td>Count of days with impressions &divide; days in month</td><td>days_with_impr / days_in_month</td></tr>
+        <tr><td><code>has_position</code></td><td>Binary: at least one day with a valid position reading</td><td>1 if avg_position &gt; 0 any day, else 0</td></tr>
+      </tbody>
+    </table>
+    <h3>2.5&nbsp;&nbsp;Eligibility and exclusions</h3>
+    <p>Items are eligible if they appear in both the March feature partition and the April label partition
+      (inner join). Items active in March but absent from April are dropped — a documented limitation
+      in &sect;6. The 30,000-row starter dataset used for the heuristic baseline audit uses a different
+      label definition and is not mixed with the warehouse evaluation frame.</p>
+
+    <!-- 3. METHODOLOGY -->
+    <h2>3&nbsp;&nbsp;Methodology</h2>
+    <h3>3.1&nbsp;&nbsp;Baseline</h3>
+    <p>The heuristic baseline is audited on the 30,000-row starter dataset before any model is trained.
+      Rule: flag if <code>impressions_90d &ge; 500 AND 0 &lt; CTR &lt; 0.5</code>; score as
+      <code>impressions_90d / CTR</code>. On the warehouse frame (monthly aggregates), the impression
+      threshold scales to <code>total_monthly_impressions &ge; 170</code> (&asymp;&nbsp;500 &times; 31/90),
+      with the same scoring formula. Starter-dataset results are the reference for the rule's absolute
+      numbers; warehouse results are comparable with the trained models.</p>
+    <h3>3.2&nbsp;&nbsp;Models</h3>
+    <ul>
+      <li><b>Logistic Regression</b> &mdash; interpretable linear comparator; features scaled with
+        <code>StandardScaler</code>; <code>class_weight='balanced'</code>.</li>
+      <li><b>Random Forest</b> &mdash; captures non-linear interactions;
+        <code>n_estimators=300</code>, <code>max_depth=8</code>, <code>min_samples_leaf=20</code>,
+        <code>class_weight='balanced'</code>, <code>random_state=42</code>.</li>
+    </ul>
+    <p>Both models are used through predicted probabilities as ranking scores. All stochastic
+      components use <code>SEED=42</code>.</p>
+    <h3>3.3&nbsp;&nbsp;Evaluation design</h3>
+    <p><b>Primary metric:</b> Precision@K at K &isin; {50, 100, 200}. K=50 is fixed as the operating
+      point before training: the review budget determines the queue head.</p>
+    <p><b>Split strategy:</b> <code>GroupShuffleSplit</code> (80/20) grouped by
+      <code>client_hash_id</code>. An assertion confirms zero client overlap across the boundary
+      (44 train clients, 11 test clients).</p>
+    <p><b>Sealed test:</b> month=2026-05 features &rarr; month=2026-06 label. Loaded exactly once, by
+      one script cell, after all development decisions were frozen. No further tuning after this point.</p>
+    <h3>3.4&nbsp;&nbsp;Leakage controls</h3>
+    <p>Three boundaries, each tested in code: (i) the April label column is quarantined immediately
+      after label construction and never enters the feature frame; a smoke test confirms AUC inflates
+      when it is added (0.847 &rarr; 0.885, &Delta;&nbsp;=&nbsp;+0.038); (ii) a client-disjointness
+      assertion runs before any model is fit; (iii) May/June data is loaded in the final, sealed-test
+      cell only.</p>
+
+    <!-- 4. RESULTS -->
+    <h2>4&nbsp;&nbsp;Results</h2>
+    <h3>4.1&nbsp;&nbsp;Development evaluation</h3>
+    <p>All methods evaluated on the same 11-client hold-out. Base rate on the test split:
+      0.241 (24.1&nbsp;percent of held-out items declined by the label definition).</p>
+    <table>
+      <caption><b>Table 2.</b> Precision@K on client-grouped dev-test hold-out (30,557 rows, 11 clients;
+        base rate 0.241).</caption>
+      <thead><tr><th>Method</th><th>P@50</th><th>P@100</th><th>P@200</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>Base rate (random selection)</td><td>0.241</td><td>0.241</td><td>0.241</td><td>Label frequency — not a fitted method</td></tr>
+        <tr><td>Heuristic rule (scaled, warehouse)</td><td>0.320</td><td>0.330</td><td>0.300</td><td>+0.079 above base at P@50</td></tr>
+        <tr><td>Logistic Regression</td><td class="hi">0.520</td><td class="hi">0.540</td><td class="hi">0.570</td><td>+0.200 above rule at P@50; AUC 0.836</td></tr>
+        <tr><td>Random Forest</td><td>0.500</td><td>0.570</td><td>0.555</td><td>+0.180 above rule at P@50; AUC 0.841</td></tr>
+      </tbody>
+    </table>
+    <p>Logistic regression has the higher observed mean at P@50 and P@100; random forest has the
+      higher P@100 and is within 0.020 of LR at P@50. Both models substantially outperform the
+      heuristic rule, which is only 0.079 above the base rate at P@50. The rule's position-blind
+      scoring formula (impressions / CTR) sends deep-position pages to the top of the queue &mdash;
+      pages that are invisible for structural reasons, not CTR problems.</p>
+
+    <figure>
+      <img src="img/precision_at_k.png" alt="Precision at K chart: LR and RF both well above the heuristic rule and base rate across K=10 to K=200.">
+      <figcaption><b>Figure 1.</b> Precision@K on the client-grouped dev-test hold-out. Both learned
+        models rise well above the heuristic rule and base rate across the full K range. The dashed
+        horizontal line is the base rate (0.241). Higher is better.</figcaption>
+    </figure>
+
+    <h3>4.2&nbsp;&nbsp;Feature importance</h3>
+    <p>Permutation importance computed on the dev-test hold-out (10 repeats, scored by Average Precision).
+      <code>impression_consistency</code> shows the largest mean drop when shuffled, followed by
+      <code>log_impressions</code> and <code>ctr</code>. <code>has_position</code> contributes least,
+      suggesting whether a position reading exists matters less than the position value itself.</p>
+    <table>
+      <caption><b>Table 3.</b> Permutation feature importance &mdash; mean drop in Average Precision
+        (10 repeats, Random Forest, dev-test hold-out). Higher means more important.</caption>
+      <thead><tr><th>Feature</th><th>Mean</th><th>Std</th></tr></thead>
+      <tbody>
+        <tr><td><code>impression_consistency</code></td><td class="hi">0.0951</td><td>0.0048</td></tr>
+        <tr><td><code>log_impressions</code></td><td>0.0667</td><td>0.0043</td></tr>
+        <tr><td><code>ctr</code></td><td>0.0615</td><td>0.0013</td></tr>
+        <tr><td><code>avg_position_filled</code></td><td>0.0468</td><td>0.0012</td></tr>
+        <tr><td><code>has_position</code></td><td>0.0143</td><td>0.0030</td></tr>
+      </tbody>
+    </table>
+
+    <figure>
+      <img src="img/feature_importance.png" alt="Bar chart showing impression_consistency as the most important feature, followed by log_impressions and ctr.">
+      <figcaption><b>Figure 2.</b> Permutation feature importance (mean &plusmn; SD, 10 repeats).
+        Impression consistency &mdash; how reliably a page generates impressions across days in the month
+        &mdash; is the strongest signal associated with subsequent decline.</figcaption>
+    </figure>
+
+    <h3>4.3&nbsp;&nbsp;Leakage boundary experiment</h3>
+    <p>Adding <code>avg_daily_impressions_apr</code> (label-window data) as a training feature inflates
+      AUC from 0.847 to 0.885 (&Delta;&nbsp;=&nbsp;+0.038). The inflated number is retained in the
+      notebook as a documented trap; the production feature frame excludes the column. All reported
+      results use the clean feature set only.</p>
+
+    <h3>4.4&nbsp;&nbsp;Error analysis</h3>
+    <p>Among dev-test rows scored by the random forest: 6,767 confident false positives
+      (score &ge; 0.70, label&nbsp;=&nbsp;0) and 1 confident false negative (score &le; 0.30,
+      label&nbsp;=&nbsp;1). The asymmetry reflects the model's conservative stance &mdash; it
+      systematically scores most items above the 0.30 threshold, erring toward flagging. This is
+      acceptable for a recall-prioritized queue but means precision degrades predictably as K grows.</p>
+    <p>Decline rate by search position bucket shows that pages in position&nbsp;11&ndash;20
+      declined at the highest observed rate (0.418), while pages in position&nbsp;1&ndash;10
+      declined at only 0.195 &mdash; consistent with the intuition that page-1 incumbents are more
+      stable. The spread across buckets (0.195&ndash;0.418) is meaningful but not large enough to
+      make position the dominant signal alone.</p>
+
+    <h3>4.5&nbsp;&nbsp;Sealed-test evaluation (May&nbsp;&rarr;&nbsp;June 2026)</h3>
+    <p>The sealed test is computed once, after all development decisions are frozen. The June 2026
+      base rate (0.441) is materially higher than the development base rate (0.241) &mdash; a shift
+      of +0.200 percentage points. Both the rule and the random forest achieve the same P@50 on this
+      month, with the rule's relative performance improving substantially versus development.</p>
+    <table>
+      <caption><b>Table 4.</b> Sealed-test Precision@K (May&nbsp;&rarr;&nbsp;June 2026; 389,032 rows,
+        65 clients; base rate 0.441). Computed once; no tuning after this point.</caption>
+      <thead><tr><th>Method</th><th>P@50</th><th>P@100</th><th>P@200</th></tr></thead>
+      <tbody>
+        <tr><td>Base rate</td><td>0.441</td><td>0.441</td><td>0.441</td></tr>
+        <tr><td>Heuristic rule</td><td>0.820</td><td>0.810</td><td>0.795</td></tr>
+        <tr><td>Random Forest</td><td>0.820</td><td>0.770</td><td>0.735</td></tr>
+      </tbody>
+    </table>
+    <p>The near-identical P@50 between methods on the sealed month warrants caution: when the base
+      rate is 0.441, even moderate score ordering achieves high precision at small K. The development
+      evaluation (base rate 0.241) is the more discriminating test for comparing methods. The sealed
+      test's primary value is confirming that the pipeline generalizes to an unseen month and that
+      the base rate shift is real &mdash; a monitoring signal in its own right.</p>
+
+    <!-- 5. LIMITATIONS -->
+    <h2>5&nbsp;&nbsp;Limitations and Honest Framing</h2>
+    <h3>5.1&nbsp;&nbsp;Silent dropout of no-April-data pages</h3>
+    <p>The inner join between March features and April labels drops any content item active in March
+      that generated no GSC-visible impressions in April. These are precisely the pages most at risk
+      of having "gone dark," yet they are absent from training. This is a label design limitation,
+      not a model tuning issue.</p>
+    <h3>5.2&nbsp;&nbsp;One development month is thin temporal evidence</h3>
+    <p>The development evaluation uses a single feature month and a single label month.
+      Month-over-month impression volatility is normal; a pattern predictive in March&rarr;April
+      may not hold in adjacent windows. The sealed test partially addresses this; a reliable system
+      would be evaluated over multiple monthly cycles before deployment.</p>
+    <h3>5.3&nbsp;&nbsp;The sealed-month base rate shift is unexplained</h3>
+    <p>The June 2026 base rate (0.441) is nearly double the development rate (0.241). This may
+      reflect a real seasonal effect, a change in GSC data coverage, or a structural shift in the
+      warehouse. Without a second sealed month to compare against, the cause cannot be determined
+      from this analysis alone. Any deployment should monitor the base rate as a first-order drift
+      indicator.</p>
+    <h3>5.4&nbsp;&nbsp;GSC-visible pages only</h3>
+    <p>The warehouse contains only pages that generated at least one Google Search Console impression.
+      New pages, de-indexed pages, and pages below the GSC visibility threshold are absent. The ranker
+      is designed for established pages with a visibility history.</p>
+    <h3>5.5&nbsp;&nbsp;Observational relationships only</h3>
+    <p>Every signal-to-outcome relationship here is observational and directional. Low impression
+      consistency is <em>associated with</em> subsequent impression decline in this dataset; it does
+      not follow that improving consistency <em>causes</em> impressions to recover. Decisions based
+      on this queue should be made by a reviewer with domain context, not applied automatically.</p>
+
+    <!-- 6. RECOMMENDATIONS -->
+    <h2>6&nbsp;&nbsp;Ranked Recommendations</h2>
+    <p>The action playbook (<code>w07_action_playbook.ipynb</code>) translates the signal patterns
+      identified here into a four-tier prioritization queue. Tiers are directional guidance for
+      human review. Decline rates below are observed in the March 2026 development frame.</p>
+    <table>
+      <caption><b>Table 5.</b> Four-tier action framework with observed decline rates (development frame,
+        March 2026). Impression thresholds apply to monthly totals.</caption>
+      <thead>
+        <tr><th>Tier</th><th>Signal pattern</th><th>N items</th><th>Observed decline rate</th><th>Suggested review</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>monitor_stable</b></td>
+          <td>impressions &ge; 200; does not meet CTR filter</td>
+          <td>33,705</td>
+          <td class="hi">0.560</td>
+          <td>Highest observed rate; review for structural position or coverage issues</td>
+        </tr>
+        <tr>
+          <td><b>rank_first</b></td>
+          <td>impressions &ge; 500 &middot; position &gt; 20 &middot; 0 &lt; CTR &lt; 0.5</td>
+          <td>7,682</td>
+          <td>0.471</td>
+          <td>Address topical depth and internal linking before CTR work</td>
+        </tr>
+        <tr>
+          <td><b>ctr_fix_page1</b></td>
+          <td>impressions &ge; 500 &middot; position &le; 20 &middot; 0 &lt; CTR &lt; 0.5</td>
+          <td>43,446</td>
+          <td>0.452</td>
+          <td>Review title and meta description; page is visible but not compelling clicks</td>
+        </tr>
+        <tr>
+          <td><b>deprioritize</b></td>
+          <td>impressions &lt; 200</td>
+          <td>246,603</td>
+          <td>0.205</td>
+          <td>Below visibility floor; dedicate budget elsewhere</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Note that <code>monitor_stable</code> shows the highest observed decline rate (0.560), which
+      is counterintuitive relative to its name. This reflects the tier assignment logic: items
+      meeting the impression floor but not the low-CTR criterion may include pages with adequate
+      traffic but no position guard, resulting in a mix that skews toward declining items.
+      Tier boundary thresholds should be revisited with a second month of data before treating
+      them as stable policy.</p>
+    <p><b>Human review is required.</b> The queue rank is a starting point for judgment, not a
+      decision. A reviewer should confirm that: the page is live and indexable; the signal pattern
+      reflects its actual strategic role; and no recent deliberate change explains the observed
+      signal before acting.</p>
+    <p><b>Drift monitoring triggers:</b> Tier 1 Precision@100 below 0.60 for two consecutive months;
+      base rate shift greater than 10 percentage points over 60 days; Tier 1 volume changing more
+      than 30&nbsp;percent month-over-month; dev vs sealed Precision@200 gap exceeding 5 percentage
+      points.</p>
+
+    <!-- 7. REPRODUCIBILITY -->
+    <h2>7&nbsp;&nbsp;Reproducibility</h2>
+    <p>All development notebooks run top-to-bottom on Google Colab (free tier). A HuggingFace read
+      token with gated-repository access is required. Add it as a Colab Secret named
+      <code>HF_TOKEN</code> before running. <code>SEED=42</code> is passed to all stochastic
+      components; DuckDB queries are deterministic.</p>
+    <div class="repro-grid">
+      <div class="repro-card">
+        <h3>Repository</h3>
+        <a href="https://github.com/NimaWyd/Flyrank">github.com/NimaWyd/Flyrank</a>
+        <p>All notebooks, outputs, and this paper source.</p>
+      </div>
+      <div class="repro-card">
+        <h3>Task framing (ML-03)</h3>
+        <a href="https://github.com/NimaWyd/Flyrank/blob/main/work/notebooks/w02_ml_task_framing.ipynb">w02_ml_task_framing.ipynb</a>
+        <p>Task type, metric choice, base rate analysis.</p>
+      </div>
+      <div class="repro-card">
+        <h3>Data contract (ML-04)</h3>
+        <a href="https://github.com/NimaWyd/Flyrank/blob/main/work/notebooks/w03_data_contract.ipynb">w03_data_contract.ipynb</a>
+        <p>Grain, feature frame, leakage trap, data limitations.</p>
+      </div>
+      <div class="repro-card">
+        <h3>Baseline score (ML-07)</h3>
+        <a href="https://github.com/NimaWyd/Flyrank/blob/main/work/notebooks/w04_baseline_score.ipynb">w04_baseline_score.ipynb</a>
+        <p>Heuristic rule audit; produces baseline_metrics.json.</p>
+      </div>
+      <div class="repro-card">
+        <h3>Model (ML-08)</h3>
+        <a href="https://github.com/NimaWyd/Flyrank/blob/main/work/notebooks/w05_model.ipynb">w05_model.ipynb</a>
+        <p>Warehouse pipeline, LR + RF training, sealed test. SEED=42.</p>
+      </div>
+      <div class="repro-card">
+        <h3>Action playbook (ML-10)</h3>
+        <a href="https://github.com/NimaWyd/Flyrank/blob/main/work/notebooks/w07_action_playbook.ipynb">w07_action_playbook.ipynb</a>
+        <p>Four-tier queue, tier profiling, drift monitoring spec.</p>
+      </div>
+    </div>
+
+    <!-- 8. ACKNOWLEDGMENTS -->
+    <div class="ack">
+      <h2>8&nbsp;&nbsp;Acknowledgments and Data Credit</h2>
+      <p>Analysis data from the pseudonymized FlyRank internship warehouse, released for educational
+        use via <a href="https://huggingface.co/datasets/FlyRank/internship-warehouse">HuggingFace Datasets</a>.
+        No client names, domains, or raw queries appear anywhere in this work. All identifiers are
+        pseudonymous hashes.</p>
+      <p>Internship program: <a href="https://flyrank.ai">FlyRank</a>. Warehouse hosted by
+        <a href="https://huggingface.co/FlyRank">FlyRank on HuggingFace</a>.</p>
+    </div>
+
+  </article>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{
+  "dev": {
+    "base_rate": 0.2411,
+    "n_rows": 30557,
+    "n_clients": 11,
+    "baseline_rule": {
+      "p50": 0.32,
+      "p100": 0.33,
+      "p200": 0.3
+    },
+    "logistic_regression": {
+      "p50": 0.52,
+      "p100": 0.54,
+      "p200": 0.57
+    },
+    "random_forest": {
+      "p50": 0.5,
+      "p100": 0.57,
+      "p200": 0.555
+    },
+    "auc_lr": 0.8363,
+    "auc_rf": 0.8408,
+    "leakage_auc_with_leak": 0.8851,
+    "leakage_auc_without_leak": 0.8472,
+    "error_analysis": {
+      "false_positives_n": 6767,
+      "false_negatives_n": 1
+    }
+  },
+  "sealed": {
+    "base_rate": 0.4406,
+    "n_rows": 389032,
+    "n_clients": 65,
+    "baseline_rule": {
+      "p50": 0.82,
+      "p100": 0.81,
+      "p200": 0.795
+    },
+    "random_forest": {
+      "p50": 0.82,
+      "p100": 0.77,
+      "p200": 0.735
+    }
+  },
+  "tier_summary": [
+    {
+      "tier": "monitor_stable",
+      "n": 33705,
+      "decline_rate": 0.5596202343865895
+    },
+    {
+      "tier": "rank_first",
+      "n": 7682,
+      "decline_rate": 0.47097110127570946
+    },
+    {
+      "tier": "ctr_fix_page1",
+      "n": 43446,
+      "decline_rate": 0.45177922018137456
+    },
+    {
+      "tier": "deprioritize",
+      "n": 246603,
+      "decline_rate": 0.20467309805639022
+    }
+  ],
+  "permutation_importance": {
+    "log_impressions": {
+      "mean": 0.06672,
+      "std": 0.00426
+    },
+    "avg_position_filled": {
+      "mean": 0.04683,
+      "std": 0.00119
+    },
+    "ctr": {
+      "mean": 0.06148,
+      "std": 0.00126
+    },
+    "impression_consistency": {
+      "mean": 0.09506,
+      "std": 0.00482
+    },
+    "has_position": {
+      "mean": 0.01434,
+      "std": 0.00296
+    }
+  }
+}
